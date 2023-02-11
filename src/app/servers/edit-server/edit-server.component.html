@@ -1,0 +1,58 @@
+<div class="container" *ngIf="allowEdit; else noEdit">
+  <div
+    class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}"
+  >
+    <div class="col-md-auto">
+      <div class="form-group">
+        <label for="name">Server Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="serverName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="status">Server Status</label>
+        <select id="status" class="form-control" [(ngModel)]="serverStatus">
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" (click)="onUpdateServer()">
+        Update Server
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #noEdit>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne"
+            >
+              Accordion Item #1
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne"
+          >
+            <div class="accordion-body">
+              <h2>Your'e not allowed to edit the server.</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
