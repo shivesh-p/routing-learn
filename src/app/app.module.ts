@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -11,6 +11,9 @@ import { ServersService } from './servers/servers.service';
 import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsPracticeComponent } from './forms-practice/forms-practice.component';
+import { TemplateDrivenComponent } from './forms-practice/template-driven/template-driven.component';
+import { ReactiveApproachComponent } from './forms-practice/reactive-approach/reactive-approach.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,11 @@ import { AppRoutingModule } from './app-routing.module';
     EditServerComponent,
     ServerComponent,
     NotFoundComponent,
+    FormsPracticeComponent,
+    TemplateDrivenComponent,
+    ReactiveApproachComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   providers: [ServersService],
   bootstrap: [AppComponent],
 })

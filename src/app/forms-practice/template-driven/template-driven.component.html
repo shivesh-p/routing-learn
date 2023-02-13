@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form ngForm #f="ngForm" (ngSubmit)="submitForm(f)">
+        <div class="form-group mt-2">
+          <label class="form-label" for="email">Email</label>
+
+          <input
+            type="email"
+            name="email"
+            ngModel
+            required
+            #email="ngModel"
+            class="form-control"
+            email
+            placeholder="name@example.com"
+          />
+          <span class="text-danger" *ngIf="email.touched && !email.valid"
+            >The email field is invalid.</span
+          >
+        </div>
+        <div class="form-group mt-2">
+          <label for="choice" class="form-label">Subscription</label>
+          <select
+            class="form-select"
+            name="choices"
+            [ngModel]="'Pro'"
+            required
+            #choicese="ngModel"
+          >
+            <option *ngFor="let choice of choices" [value]="choice">
+              {{ choice }}
+            </option>
+          </select>
+          <span class="text-danger" *ngIf="choicese.invalid && choicese.touched"
+            >Subscription is not valid.</span
+          >
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            ngModel
+            #pwd="ngModel"
+            required
+          />
+          <span class="text-danger" *ngIf="pwd.invalid && pwd.touched"
+            >Password is invalid.</span
+          >
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-secondary" [disabled]="f.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row" *ngIf="showDetails">
+    <div class="col-md-12">Email {{ formObj.email }}</div>
+    <div class="col-md-12">Password {{ formObj.password }}</div>
+    <div class="col-md-12">Choice {{ formObj.choices }}</div>
+  </div>
+</div>

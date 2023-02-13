@@ -10,6 +10,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { CanDeactivateGuard } from './servers/can-deactivate.guard';
 import { ServerResolver } from './servers/server/server.resolver';
+import { FormsPracticeComponent } from "./forms-practice/forms-practice.component";
+import { TemplateDrivenComponent } from './forms-practice/template-driven/template-driven.component';
+import { ReactiveApproachComponent } from './forms-practice/reactive-approach/reactive-approach.component';
 
 const appRoutes: Routes = [
   {
@@ -43,6 +46,13 @@ const appRoutes: Routes = [
         canDeactivate: [CanDeactivateGuard]
       },
     ],
+  },
+  {
+    path: 'forms', component: FormsPracticeComponent, children: [
+      { path: '', pathMatch: 'full', redirectTo: '/forms' },
+      { path: 'template', component: TemplateDrivenComponent },
+      { path: 'reactive', component: ReactiveApproachComponent },
+    ]
   },
   {
     path: 'not-found', component: NotFoundComponent

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="d-flex justify-content-center flex-column gap-2">
+        <button
+          class="btn btn-primary mt-2"
+          [routerLinkActive]="'disabled'"
+          [routerLink]="['template']"
+        >
+          Template Forms
+        </button>
+        <button
+          class="btn btn-danger"
+          [routerLink]="['reactive']"
+          [routerLinkActive]="'disabled'"
+        >
+          Reactive Forms
+        </button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

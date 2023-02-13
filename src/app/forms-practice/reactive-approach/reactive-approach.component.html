@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="submitForm()" [formGroup]="userForm">
+        <div class="mb-3">
+          <label for="exampleInputText1" class="form-label">Project</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputText1"
+            aria-describedby="textHelp"
+            formControlName="projectName"
+          />
+          <div
+            id="textHelp"
+            class="form-text text-danger"
+            *ngIf="
+              !userForm.get('projectName').valid &&
+              userForm.get('projectName').touched
+            "
+          >
+            <span *ngIf="userForm.get('projectName').errors?.['required']"
+              >Project is a required field.</span
+            >
+            <span *ngIf="userForm.get('projectName').errors?.['invalidName']"
+              >Project field has an invalid value.</span
+            >
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="mail"
+          />
+          <div
+            id="emailHelp"
+            class="form-text text-danger"
+            *ngIf="!userForm.get('mail').valid && userForm.get('mail').touched"
+          >
+            Email is invalid.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Project Status</label>
+          <select
+            class="form-select form-select-md"
+            name=""
+            id=""
+            formControlName="projectStatus"
+          >
+            <option *ngFor="let stat of statuses" [value]="stat">
+              {{ stat }}
+            </option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          [disabled]="!userForm.valid"
+          class="btn btn-success"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
