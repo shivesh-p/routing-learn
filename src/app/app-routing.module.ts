@@ -13,7 +13,7 @@ import { ServerResolver } from './servers/server/server.resolver';
 import { FormsPracticeComponent } from "./forms-practice/forms-practice.component";
 import { TemplateDrivenComponent } from './forms-practice/template-driven/template-driven.component';
 import { ReactiveApproachComponent } from './forms-practice/reactive-approach/reactive-approach.component';
-
+import { PipesComponent } from './pipes-comp/pipes-comp.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -54,6 +54,7 @@ const appRoutes: Routes = [
       { path: 'reactive', component: ReactiveApproachComponent },
     ]
   },
+  { path: 'pipes', component: PipesComponent },
   {
     path: 'not-found', component: NotFoundComponent
   },

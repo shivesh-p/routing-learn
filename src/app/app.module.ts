@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsPracticeComponent } from './forms-practice/forms-practice.component';
 import { TemplateDrivenComponent } from './forms-practice/template-driven/template-driven.component';
 import { ReactiveApproachComponent } from './forms-practice/reactive-approach/reactive-approach.component';
+import { PipesComponent } from './pipes-comp/pipes-comp.component';
+import { SortPipe } from './pipes-comp/sort.pipe';
+import { ReversePipe } from './pipes-comp/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { ReactiveApproachComponent } from './forms-practice/reactive-approach/re
     FormsPracticeComponent,
     TemplateDrivenComponent,
     ReactiveApproachComponent,
+    PipesComponent,
+    SortPipe,
+    ReversePipe,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   providers: [ServersService],
