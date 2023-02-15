@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form ngForm (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+        <div class="mb-3">
+          <label for="exampleInputText1" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputText1"
+            aria-describedby="textHelp"
+            ngModel
+            name="title"
+            #title
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputText1" class="form-label">Content</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputText1"
+            aria-describedby="textHelp"
+            ngModel
+            name="content"
+            #content
+          />
+        </div>
+        <button class="btn btn-success mb-2" type="submit">Post Data</button>
+        <button
+          type="button"
+          class="btn btn-warning ms-2 mb-2"
+          (click)="reloadPosts()"
+        >
+          Reload
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger ms-2 mb-2"
+          (click)="deleteAll()"
+        >
+          Delete All Posts
+        </button>
+      </form>
+    </div>
+    <hr />
+    <div class="col-md-12" *ngIf="isLoading">
+      <h4>Loading...</h4>
+    </div>
+    <div class="col-md-12 mb-2" *ngIf="posts.length < 1 && !isLoading">
+      <ul class="list-group">
+        <li class="list-group-item disabled" aria-disabled="true">
+          No Posts to Display.
+        </li>
+      </ul>
+    </div>
+    <ul class="list-group mb-2" *ngIf="posts.length >= 1 && !isLoading">
+      <li
+        class="list-group-item d-flex justify-content-between"
+        *ngFor="let post of posts"
+        aria-current="true"
+      >
+        <h5 class="list-group-item-header">{{ post.title }}</h5>
+        <p class="list-group-item-body">{{ post.content }}</p>
+      </li>
+    </ul>
+    <hr />
+    <div class="alert alert-danger mt-2" role="alert" *ngIf="error">
+      <h4 class="alert-heading">Alert!</h4>
+      <p>
+        {{ errorMessage }}
+      </p>
+      <hr />
+      <p class="mb-0">
+        <button class="btn btn-secondary" (click)="dismissError()">
+          Dismiss
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
